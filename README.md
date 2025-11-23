@@ -24,6 +24,13 @@ The base branch `main` includes only the most necessary parts of a python projec
 You can include branches depending on your needs:
 * TODO
 
+## Local Development
+
+### Run
+
+```bash
+uv run python python_template/main.py
+```
 
 ## References
 
@@ -32,6 +39,7 @@ You can include branches depending on your needs:
 - [Angular - Commit Message Guidelines](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines)
 - [commitizen - GitHub Actions](https://commitizen-tools.github.io/commitizen/tutorials/github_actions/)
 - [mypy - cheat sheet](https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html)
+- [loguru - Switching from Standard Logging to Loguru](https://loguru.readthedocs.io/en/stable/resources/migration.html)
 
 Other Templates:
 - [FastAPI - Template](https://github.com/fastapi/full-stack-fastapi-template)

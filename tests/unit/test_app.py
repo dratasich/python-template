@@ -1,7 +1,6 @@
 from python_template.main import main
 
 
-def test_main(capsys):
+def test_main(caplog):
     main()
-    captured = capsys.readouterr()
-    assert captured.out == "Hello from python-template!\n"
+    assert "Hello from python-template!" in caplog.text
