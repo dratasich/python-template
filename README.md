@@ -18,6 +18,7 @@ The base branch `main` includes only the most necessary parts of a python projec
   # ideally this is performed by your pipeline (e.g., on PR merge)
   cz bump  --yes --annotated-tag --check-consistency
   ```
+* [pytest](https://docs.pytest.org/en/stable/) - yes, even for python notebooks ;)
 * [pre-commit](https://pre-commit.com/) config (enforcing all of the above)
 
 You can include branches depending on your needs:
