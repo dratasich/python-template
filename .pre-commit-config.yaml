@@ -34,3 +34,14 @@ repos:
     hooks:
       - id: uv-lock
         stages: [pre-commit]
+  # see also https://github.com/pre-commit/mirrors-mypy
+  # but this way we use the same environment as uv
+  - repo: local
+    hooks:
+      - id: mypy
+        name: mypy
+        entry: uv run mypy
+        language: system
+        types: [python]
+        files: .
+        stages: [pre-commit]  # change to pre-push if desired
