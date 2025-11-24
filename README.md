@@ -2,7 +2,11 @@
 
 Template/boilerplate/reference project for a Python application (branches for different add-ons, e.g. like FastAPI)
 
-1. Clone&copy or use this via GitHub directly, see [create a repository from a template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+1. Clone & copy
+   ([cookiecutter](https://cookiecutter.readthedocs.io/en/stable/),
+   [copier](https://copier.readthedocs.io/en/stable/))
+   or use this repo via GitHub directly, see
+   [create a repository from a template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
 2. Run `uv run pre-commit install`.
 
 ## Branches
