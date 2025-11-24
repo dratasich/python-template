@@ -8,5 +8,5 @@ class DatabaseClient:
         logger.info(f"Connecting to database at {db_url}")
 
     def is_connected(self) -> bool:
-        logger.debug("Checking database connection")
+        logger.trace("Checking database connection")
         return random.choice([True, False])

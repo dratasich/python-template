@@ -3,9 +3,9 @@ from python_template.config import Configuration
 
 # https://docs.pytest.org/en/stable/how-to/monkeypatch.html
 def test_env_override(monkeypatch):
-    monkeypatch.setenv("DEBUG", "true")
+    monkeypatch.setenv("LOG_LEVEL", "TRACE")
     config = Configuration()
-    assert config.debug is True
+    assert config.log_level == "TRACE"
 
 
 def test_secret_not_printed():

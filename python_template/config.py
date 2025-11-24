@@ -1,10 +1,14 @@
 from pydantic import Field, SecretStr
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
+from python_template.log import Level
+
 
 class Configuration(BaseSettings):
-    # application debug mode
-    debug: bool = False
+    # log level
+    # see severity levels in https://loguru.readthedocs.io/en/stable/api/logger.html
+    # uppercase value, see https://docs.pydantic.dev/1.10/usage/types/#constrained-types
+    log_level: Level = Level.INFO
     # enable structured logging in JSON format
     log_json: bool = False
 

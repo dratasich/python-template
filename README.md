@@ -29,8 +29,10 @@ You can include branches depending on your needs:
 ### Run
 
 ```bash
-uv run python python_template/main.py
+LOG_LEVEL=TRACE uv run python python_template/main.py
 ```
+
+You can have the env variables in `.env.shared` or customize it on the command line.
 
 ## References
 
