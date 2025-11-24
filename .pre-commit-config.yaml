@@ -45,3 +45,15 @@ repos:
         types: [python]
         files: .
         stages: [pre-commit]  # change to pre-push if desired
+  - repo: local
+    hooks:
+      - id: pytest
+        name: pytest
+        # skip integration tests, as these may take quite a long time
+        # and require external dependencies
+        entry: uv run pytest tests/unit
+        language: system
+        pass_filenames: false
+        always_run: true
+        types: [python]
+        stages: [pre-push]

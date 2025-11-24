@@ -2,8 +2,13 @@
 
 Template/boilerplate/reference project for a Python application (branches for different add-ons, e.g. like FastAPI)
 
-1. Clone&copy or use this via GitHub directly, see [create a repository from a template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+1. Clone & copy
+   ([cookiecutter](https://cookiecutter.readthedocs.io/en/stable/),
+   [copier](https://copier.readthedocs.io/en/stable/))
+   or use this repo via GitHub directly, see
+   [create a repository from a template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
 2. Run `uv run pre-commit install`.
+3. Delete `CHANGELOG.md` and reset version in `pyproject.toml` for your app.
 
 ## Branches
 
@@ -18,11 +23,21 @@ The base branch `main` includes only the most necessary parts of a python projec
   # ideally this is performed by your pipeline (e.g., on PR merge)
   cz bump  --yes --annotated-tag --check-consistency
   ```
+* [pytest](https://docs.pytest.org/en/stable/) - yes, even for python notebooks ;)
 * [pre-commit](https://pre-commit.com/) config (enforcing all of the above)
 
 You can include branches depending on your needs:
 * TODO
 
+## Local Development
+
+### Run
+
+```bash
+LOG_LEVEL=TRACE uv run python python_template/main.py
+```
+
+You can have the env variables in `.env.shared` or customize it on the command line.
 
 ## References
 
@@ -31,6 +46,7 @@ You can include branches depending on your needs:
 - [Angular - Commit Message Guidelines](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines)
 - [commitizen - GitHub Actions](https://commitizen-tools.github.io/commitizen/tutorials/github_actions/)
 - [mypy - cheat sheet](https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html)
+- [loguru - Switching from Standard Logging to Loguru](https://loguru.readthedocs.io/en/stable/resources/migration.html)
 
 Other Templates:
 - [FastAPI - Template](https://github.com/fastapi/full-stack-fastapi-template)

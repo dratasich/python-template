@@ -5,15 +5,24 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 
-dependencies = []
+dependencies = [
+    "loguru>=0.7.3",
+    "pydantic-settings>=2.12.0",
+]
 
 [dependency-groups]
 dev = [
     "commitizen>=4.10.0",
     "mypy>=1.18.2",
     "pre-commit>=4.5.0",
+    "pytest>=9.0.1",
     "ruff>=0.14.6",
 ]
+
+[build-system]
+build-backend = "hatchling.build"
+requires = ["hatchling"]
+
 
 [tool.commitizen]
 name = "cz_conventional_commits"
