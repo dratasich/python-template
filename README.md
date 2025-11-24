@@ -8,6 +8,7 @@ Template/boilerplate/reference project for a Python application (branches for di
    or use this repo via GitHub directly, see
    [create a repository from a template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
 2. Run `uv run pre-commit install`.
+3. Delete `CHANGELOG.md` and reset version in `pyproject.toml` for your app.
 
 ## Branches
 
