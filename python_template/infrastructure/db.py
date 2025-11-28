@@ -1,3 +1,10 @@
+"""Database client.
+
+May be shared across the application.
+Should limit the number of connections to the database
+(your ops-colleagues will be thankful ;).
+"""
+
 import random
 
 from loguru import logger
