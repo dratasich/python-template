@@ -16,17 +16,16 @@ logger.info(f"Configuration: {config}")
 
 # --- init dependencies ---
 
+db_client = DatabaseClient(db_url="sqlite:///:memory:")
 repo = Repository(
-    db_client=DatabaseClient(db_url="sqlite:///:memory:"),
+    db_client=db_client,
     a_config_parameter=config.my_list,
 )
-response = repo.ping()
-logger.info(f"Repo status: {response.value}")
-
-
-def main():
-    logger.info("Hello from python-template!")
-
+try:
+    response = repo.get(item_id=1)
+    logger.info(f"Get item: {response}")
+except Exception as e:
+    logger.error(f"Error getting item: {e}")
 
 if __name__ == "__main__":
     logger.info("Hello from python-template!")

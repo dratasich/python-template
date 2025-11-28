@@ -1,6 +1,10 @@
+from unittest.mock import MagicMock
+
 import pytest
 from _pytest.logging import LogCaptureFixture
 from loguru import logger
+
+from python_template.infrastructure.repository import Repository
 
 
 @pytest.fixture
@@ -18,3 +22,15 @@ def caplog(caplog: LogCaptureFixture):
     )
     yield caplog
     logger.remove(handler_id)
+
+
+@pytest.fixture
+def db_mock():
+    db_client = MagicMock()
+    db_client.is_connected.return_value = True
+    return db_client
+
+
+@pytest.fixture
+def repo(db_mock):
+    return Repository(db_client=db_mock)
