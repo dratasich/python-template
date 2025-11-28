@@ -50,15 +50,29 @@ def configure(level=Level.INFO, enable_json=False):
             sys.stderr,
             format="{serialized}",
             level=level.value,
+            filter=filter,  # suppress logs from k8s probes
             diagnose=False,  # avoid leaking sensitive data
         )
         logger.configure(patcher=patching)
     else:
         # default loguru format with colorization
-        logger.add(sys.stderr, level=level.value)
+        logger.add(sys.stderr, level=level.value, filter=filter)
 
     # intercept all logs from the standard logging module
     logging.basicConfig(handlers=[InterceptHandler()], level=0, force=True)
+
+
+def filter(record):
+    """A filter to exclude log records.
+
+    Used to drop noisy log messages from k8s probes (executed frequently).
+    """
+    drop_in_message = [
+        "GET /live",
+        "GET /ready",
+        "GET /metrics",
+    ]
+    return all(drop not in record["message"] for drop in drop_in_message)
 
 
 def serialize(record):

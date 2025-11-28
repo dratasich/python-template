@@ -45,6 +45,12 @@ Start FastAPI dev mode with auto-reload on changes:
 uv run fastapi dev python_template/main.py
 ```
 
+Interface:
+- [/docs](http://localhost:8000/docs) (probes and metrics are excluded)
+- [/live](http://localhost:8000/live)
+- [/ready](http://localhost:8000/ready)
+- [/metrics](http://localhost:8000/metrics)
+
 ## References
 
 - [Ruff - Configuration](https://docs.astral.sh/ruff/configuration/)

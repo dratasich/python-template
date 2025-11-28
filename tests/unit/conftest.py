@@ -5,6 +5,7 @@ from _pytest.logging import LogCaptureFixture
 from loguru import logger
 
 from python_template.infrastructure.repository import Repository
+from python_template.log import filter
 
 
 @pytest.fixture
@@ -17,7 +18,8 @@ def caplog(caplog: LogCaptureFixture):
         caplog.handler,
         format="{message}",
         level=0,
-        filter=lambda record: record["level"].no >= caplog.handler.level,
+        filter=lambda record: record["level"].no >= caplog.handler.level
+        and filter(record),
         enqueue=False,  # Set to 'True' if your test is spawning child processes.
     )
     yield caplog

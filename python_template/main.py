@@ -1,6 +1,7 @@
 import uvicorn
 from fastapi import FastAPI
 from loguru import logger
+from prometheus_fastapi_instrumentator import Instrumentator
 
 from python_template.api.demo import router as demo
 from python_template.api.health import router as health
@@ -53,6 +54,10 @@ app.include_router(demo.router, prefix="/api/v1", tags=["demo"])
 app.state.config = config
 app.state.db = db_client
 app.state.repo = repo
+
+# expose fastapi metrics in prometheus format
+Instrumentator().instrument(app).expose(app, include_in_schema=False)
+
 
 if __name__ == "__main__":
     logger.info("Run webserver...")
