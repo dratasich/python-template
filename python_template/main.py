@@ -5,6 +5,7 @@ from prometheus_fastapi_instrumentator import Instrumentator
 
 from python_template.api.demo import router as demo
 from python_template.api.health import router as health
+from python_template.api.middleware.log import LogMiddleware
 from python_template.config import Configuration
 from python_template.infrastructure.db import DatabaseClient
 from python_template.infrastructure.repository import Repository
@@ -43,6 +44,7 @@ app = FastAPI(
         "url": "https://opensource.org/licenses/MIT",
     },
 )
+app.add_middleware(LogMiddleware)
 
 # add routers
 # https://fastapi.tiangolo.com/tutorial/bigger-applications/

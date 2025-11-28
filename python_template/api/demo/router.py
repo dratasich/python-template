@@ -7,6 +7,7 @@ Check out following FastAPI documentation for more details:
 
 from fastapi import APIRouter, HTTPException, Request
 
+from python_template.api.middleware.log import LogMiddleware
 from python_template.config import Configuration
 from python_template.infrastructure.repository import Repository
 
@@ -19,6 +20,8 @@ router = APIRouter(tags=["demo"])
 async def get_config(req: Request):
     """Get the application configuration."""
     config: Configuration = req.app.state.config
+    bound_logger = LogMiddleware.get_logger(req)
+    bound_logger.debug("Configuration endpoint called")
     return config.model_dump()
 
 
