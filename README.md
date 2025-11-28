@@ -40,6 +40,11 @@ LOG_LEVEL=TRACE uv run python python_template/main.py
 
 You can have the env variables in `.env.shared` or customize it on the command line.
 
+Start FastAPI dev mode with auto-reload on changes:
+```bash
+uv run fastapi dev python_template/main.py
+```
+
 ## References
 
 - [Ruff - Configuration](https://docs.astral.sh/ruff/configuration/)

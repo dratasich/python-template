@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.12"
 
 dependencies = [
+    "fastapi>=0.122.0",
     "loguru>=0.7.3",
     "pydantic-settings>=2.12.0",
 ]
@@ -13,6 +14,7 @@ dependencies = [
 [dependency-groups]
 dev = [
     "commitizen>=4.10.0",
+    "fastapi[standard]>=0.122.0",
     "mypy>=1.18.2",
     "pre-commit>=4.5.0",
     "pytest>=9.0.1",
