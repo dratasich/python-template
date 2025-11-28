@@ -1,3 +1,10 @@
+## 0.3.0 (2025-11-28)
+
+### Feat
+
+- make db and repo more realistic and test (!)
+- remove unused main function
+
 ## 0.2.0 (2025-11-24)
 
 ### Feat
