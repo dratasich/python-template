@@ -28,7 +28,7 @@ The base branch `main` includes only the most necessary parts of a python projec
 * [pre-commit](https://pre-commit.com/) config (enforcing all of the above)
 
 You can include branches depending on your needs:
-* TODO
+* `fastapi` - Webservice with [FastAPI](https://fastapi.tiangolo.com/tutorial/first-steps/)
 
 ## Local Development
 
