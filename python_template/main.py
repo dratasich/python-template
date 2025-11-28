@@ -1,5 +1,9 @@
+import uvicorn
+from fastapi import FastAPI
 from loguru import logger
 
+from python_template.api.demo import router as demo
+from python_template.api.health import router as health
 from python_template.config import Configuration
 from python_template.infrastructure.db import DatabaseClient
 from python_template.infrastructure.repository import Repository
@@ -27,5 +31,36 @@ try:
 except Exception as e:
     logger.error(f"Error getting item: {e}")
 
+# --- fastapi app ---
+
+app = FastAPI(
+    summary="Python Template Service",
+    description="A template for Python microservices using FastAPI.",
+    version="0.1.0",
+    license_info={
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT",
+    },
+)
+
+# add routers
+# https://fastapi.tiangolo.com/tutorial/bigger-applications/
+# add health endpoints / k8s probes
+app.include_router(health.router, include_in_schema=False)
+app.include_router(demo.router, prefix="/api/v1", tags=["demo"])
+
+# add dependencies to app state so they can be accessed in endpoints
+app.state.config = config
+app.state.db = db_client
+app.state.repo = repo
+
 if __name__ == "__main__":
-    logger.info("Hello from python-template!")
+    logger.info("Run webserver...")
+    uvicorn.run(
+        app,
+        host="0.0.0.0",
+        port=8000,
+        log_config=None,  # disable uvicorn to overwrite our log config
+        log_level=None,
+    )  # blocking
+    logger.info("Application stopped.")
