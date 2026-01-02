@@ -54,3 +54,4 @@ You can have the env variables in `.env.shared` or customize it on the command l
 
 Other Templates:
 - [FastAPI - Template](https://github.com/fastapi/full-stack-fastapi-template)
+- [Python uv](https://github.com/a5chin/python-uv)
