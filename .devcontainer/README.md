@@ -41,6 +41,18 @@ Edit `devcontainer.json` to:
 - Add environment variables in `containerEnv`
 - Install additional system packages in `postCreateCommand`
 
+## Container Resources
+
+Dev container performance depends on available CPU, memory, and disk resources.
+
+- macOS/Windows (Podman Machine): Increase VM limits when builds/tests feel slow.
+  - Check current settings:
+    - `podman machine inspect`
+  - Raise limits (example: 4 CPUs, 4GB RAM, 60GB disk):
+    - `podman machine set --cpus 4 --memory 4096 --disk-size 60`
+    - `podman machine stop && podman machine start`
+- Linux (native Podman): Containers use host resources by default.
+
 ## References
 
 - [containers.dev](https://containers.dev/)
