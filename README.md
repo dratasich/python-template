@@ -29,6 +29,9 @@ The base branch `main` includes only the most necessary parts of a python projec
 
 You can include branches depending on your needs:
 * `fastapi` - Webservice with [FastAPI](https://fastapi.tiangolo.com/tutorial/first-steps/)
+* `devcontainers` - Develop within a [devcontainer](https://containers.dev/)
+   (nice to have when you use AI agents or don't have admin rights
+   to install all the stuff you need - `docker` or `podman` required though)
 
 ## Local Development
 
