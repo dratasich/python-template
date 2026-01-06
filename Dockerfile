@@ -1,4 +1,11 @@
-# derived from https://github.com/astral-sh/uv-docker-example/blob/main/multistage.Dockerfile
+# Multi-stage Dockerfile
+#
+# derived from:
+# - https://github.com/astral-sh/uv-docker-example/blob/main/multistage.Dockerfile
+# - https://docs.astral.sh/uv/guides/integration/docker/#installing-uv
+
+
+# build image
 FROM python:3.13-slim-trixie AS builder
 
 # install uv (package manager)
@@ -14,7 +21,7 @@ ENV UV_NO_DEV=1
 RUN uv sync --locked
 
 
-# create final runtime image
+# final runtime image
 FROM python:3.13-slim-trixie
 
 # setup a nonroot user
