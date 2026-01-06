@@ -11,7 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.12", "3.13"]
+        python-version:
+          - "3.12"
+          - "3.13"
+          - "3.14"
 
     steps:
       - uses: actions/checkout@v5
@@ -25,8 +28,8 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v6
 
-      - name: Install dependencies
-        run: uv python install
+      - name: Install the project
+        run: uv sync --locked --all-extras --dev
 
       - name: Run tests
         run: uv run pytest tests/unit
