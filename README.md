@@ -1,6 +1,6 @@
 # python-template
 
-[![test](https://github.com/dratasich/python-template/actions/workflows/test.yml/badge.svg)](https://github.com/dratasich/python-template/actions/workflows/python.yml)
+[![test](https://github.com/dratasich/python-template/actions/workflows/test.yml/badge.svg)](https://github.com/dratasich/python-template/actions/workflows/test.yml)
 [![license](https://img.shields.io/github/license/dratasich/python-template)](LICENSE)
 
 Template/boilerplate/reference project for a Python application (branches for different add-ons, e.g. like FastAPI)
