@@ -3,15 +3,14 @@
 [![test](https://github.com/dratasich/python-template/actions/workflows/test.yml/badge.svg)](https://github.com/dratasich/python-template/actions/workflows/test.yml)
 [![license](https://img.shields.io/github/license/dratasich/python-template)](LICENSE)
 
-Template/boilerplate/reference project for a Python application (branches for different add-ons, e.g. like FastAPI)
+Template/boilerplate/reference project for a Python application (branches for different add-ons, e.g. FastAPI)
 
-1. Clone & copy
-   ([cookiecutter](https://cookiecutter.readthedocs.io/en/stable/),
-   [copier](https://copier.readthedocs.io/en/stable/))
-   or use this repo via GitHub directly, see
+1. Use this repo via GitHub directly, see
    [create a repository from a template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
-2. Run `uv run pre-commit install`.
-3. Delete `CHANGELOG.md` and reset version in `pyproject.toml` for your app.
+   or copy
+   (e.g. with [copier](https://copier.readthedocs.io/en/stable/))
+3. Run `uv run pre-commit install`.
+4. Delete `CHANGELOG.md` and reset version in `pyproject.toml` for your app.
 
 ## Branches
 
@@ -60,3 +59,5 @@ You can have the env variables in `.env.shared` or customize it on the command l
 Other Templates:
 - [FastAPI - Template](https://github.com/fastapi/full-stack-fastapi-template)
 - [Python uv](https://github.com/a5chin/python-uv)
+- [substrate](https://github.com/superlinear-ai/substrate) - awesome copier template with very similar tools
+- [copier-uv](https://github.com/pawamoy/copier-uv)
