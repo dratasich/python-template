@@ -9,7 +9,10 @@ repos:
     hooks:
       - id: conventional-pre-commit
         stages: [commit-msg]
-        args: ["--verbose"]  # print help on how the message should look like
+        # verbose prints help on how the message should look like
+        # define types according to angular commit message convention
+        # https://github.com/angular/angular/blob/main/contributing-docs/commit-message-guidelines.md#type
+        args: [--verbose, feat, fix, build, ci, docs, perf, refactor, test, chore]
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
     hooks:
