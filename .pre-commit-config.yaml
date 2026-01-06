@@ -46,6 +46,8 @@ repos:
         name: ty check
         entry: uv run ty check .
         language: system
+        pass_filenames: false
+        always_run: true
         types: [python]
         stages: [pre-commit]  # change to pre-push if desired
   - repo: local
