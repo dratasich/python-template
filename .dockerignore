@@ -1,0 +1,14 @@
+# Ignore everything
+*
+
+# Allow only
+!python_template
+!pyproject.toml
+!uv.lock
+!README.md
+
+!tests
+
+!.env.shared
+# enable if you want to spare the env settings when running locally
+#!.env.secret

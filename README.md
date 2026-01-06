@@ -47,6 +47,12 @@ LOG_LEVEL=TRACE uv run python python_template/main.py
 
 You can have the env variables in `.env.shared` or customize it on the command line.
 
+### Build
+
+```bash
+podman build -f Dockerfile -t python-template:latest .
+```
+
 ## References
 
 - [Ruff - Configuration](https://docs.astral.sh/ruff/configuration/)
