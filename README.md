@@ -5,8 +5,7 @@
 
 Template/boilerplate/reference project for a Python application (branches for different add-ons, e.g. FastAPI)
 
-1. Use this repo via GitHub directly, see
-   [create a repository from a template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+1. Create a repository from this template in [GitHub directly](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template)
    or copy
    (e.g. with [copier](https://copier.readthedocs.io/en/stable/))
 3. Run `uv run pre-commit install`.
@@ -18,7 +17,7 @@ The base branch `main` includes only the most necessary parts of a python projec
 * `git` config (gitignore for Python, gitattributes to ensure proper line endings in the repo)
 * [uv](https://docs.astral.sh/uv/) setup (currently the fastest Python package manager (?))
 * [ruff](https://docs.astral.sh/ruff/configuration/) for code formatting and linting
-* [mypy](https://mypy.readthedocs.io/en/stable/) for static type checking
+* [ty](https://docs.astral.sh/ty/) for static type checking
 * [commitizen](https://commitizen-tools.github.io/commitizen/) for structured commits (= [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/)) enabling automatic versioning and changelog update
   ```bash
   # bump version (in `pyproject.toml` and update `CHANGELOG.md`)
@@ -52,7 +51,6 @@ You can have the env variables in `.env.shared` or customize it on the command l
 - [Conventional Commits - Quickstart](https://www.conventionalcommits.org/en/v1.0.0/#summary)
 - [Angular - Commit Message Guidelines](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines)
 - [commitizen - GitHub Actions](https://commitizen-tools.github.io/commitizen/tutorials/github_actions/)
-- [mypy - cheat sheet](https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html)
 - [loguru - Switching from Standard Logging to Loguru](https://loguru.readthedocs.io/en/stable/resources/migration.html)
 - [Using uv in docker](https://docs.astral.sh/uv/guides/integration/docker/#getting-started)
 

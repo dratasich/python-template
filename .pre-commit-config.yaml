@@ -1,6 +1,7 @@
 default_install_hook_types:
   - commit-msg
   - pre-commit
+  - pre-push
 
 repos:
   - repo: https://github.com/compilerla/conventional-pre-commit
@@ -8,7 +9,10 @@ repos:
     hooks:
       - id: conventional-pre-commit
         stages: [commit-msg]
-        args: ["--verbose"]  # print help on how the message should look like
+        # verbose prints help on how the message should look like
+        # define types according to angular commit message convention
+        # https://github.com/angular/angular/blob/main/contributing-docs/commit-message-guidelines.md#type
+        args: [--verbose, feat, fix, build, ci, docs, perf, refactor, test, chore]
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
     hooks:
@@ -34,16 +38,17 @@ repos:
     hooks:
       - id: uv-lock
         stages: [pre-commit]
-  # see also https://github.com/pre-commit/mirrors-mypy
-  # but this way we use the same environment as uv
+  # no official hook yet
+  # https://github.com/astral-sh/ty/issues/269
   - repo: local
     hooks:
-      - id: mypy
-        name: mypy
-        entry: uv run mypy
+      - id: ty
+        name: ty check
+        entry: uv run ty check .
         language: system
+        pass_filenames: false
+        always_run: true
         types: [python]
-        files: .
         stages: [pre-commit]  # change to pre-push if desired
   - repo: local
     hooks:
