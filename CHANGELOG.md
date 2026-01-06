@@ -1,3 +1,13 @@
+## 0.4.0 (2026-01-06)
+
+### Feat
+
+- **ci**: add workflow to check PR code style
+
+### Fix
+
+- **ci**: test with different python versions
+
 ## 0.3.0 (2025-11-28)
 
 ### Feat
