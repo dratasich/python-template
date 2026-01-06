@@ -1,7 +1,9 @@
 # This workflow will run the unit tests
-# https://docs.github.com/en/actions/tutorials/build-and-test-code/python
+#
+# - https://docs.astral.sh/uv/guides/integration/github/#installation
+# - https://docs.github.com/en/actions/tutorials/build-and-test-code/python
 
-name: Python package
+name: test
 
 on: [push]
 
@@ -24,7 +26,6 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      # https://docs.astral.sh/uv/guides/integration/github/#installation
       - name: Install uv
         uses: astral-sh/setup-uv@v6
 
