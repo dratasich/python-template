@@ -31,10 +31,11 @@ The base branch `main` includes only the most necessary parts of a python projec
 * [pre-commit](https://pre-commit.com/) config (enforcing all of the above)
 
 You can include branches depending on your needs:
-* `fastapi` - Webservice with [FastAPI](https://fastapi.tiangolo.com/tutorial/first-steps/)
 * `devcontainers` - Develop within a [devcontainer](https://containers.dev/)
    (nice to have when you use AI agents or don't have admin rights
    to install all the stuff you need - `docker` or `podman` required though)
+* `docker` - Dockerfile and a GitHub action / workflow to build the image
+* `fastapi` - Webservice with [FastAPI](https://fastapi.tiangolo.com/tutorial/first-steps/)
 
 ## Local Development
 
@@ -54,6 +55,7 @@ You can have the env variables in `.env.shared` or customize it on the command l
 - [commitizen - GitHub Actions](https://commitizen-tools.github.io/commitizen/tutorials/github_actions/)
 - [mypy - cheat sheet](https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html)
 - [loguru - Switching from Standard Logging to Loguru](https://loguru.readthedocs.io/en/stable/resources/migration.html)
+- [Using uv in docker](https://docs.astral.sh/uv/guides/integration/docker/#getting-started)
 
 Other Templates:
 - [FastAPI - Template](https://github.com/fastapi/full-stack-fastapi-template)
