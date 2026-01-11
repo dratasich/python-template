@@ -6,7 +6,6 @@ from fastapi.testclient import TestClient
 from loguru import logger
 
 from python_template.api.middleware.log import LogMiddleware
-from python_template.log import filter
 
 
 @pytest.fixture
@@ -26,7 +25,7 @@ def caplog(caplog: LogCaptureFixture):
 @pytest.fixture
 def client():
     app = FastAPI()
-    app.add_middleware(LogMiddleware)
+    app.add_middleware(LogMiddleware)  # ty: ignore[invalid-argument-type]
 
     @app.get("/ping")
     def ping(request: Request):

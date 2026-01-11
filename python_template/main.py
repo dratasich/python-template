@@ -44,7 +44,7 @@ app = FastAPI(
         "url": "https://opensource.org/licenses/MIT",
     },
 )
-app.add_middleware(LogMiddleware)
+app.add_middleware(LogMiddleware)  # ty: ignore[invalid-argument-type]
 
 # add routers
 # https://fastapi.tiangolo.com/tutorial/bigger-applications/

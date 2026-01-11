@@ -23,5 +23,5 @@ def test_propagates_given_request_id(client: TestClient):
     given = "whatever-id-you-want"
     resp = client.get("/ping", headers={header: given})
     assert resp.headers.get(header) == given
-    resp = client.get("/ping", headers={header.lower(): given+"2"})
-    assert resp.headers.get(header) == given+"2"
+    resp = client.get("/ping", headers={header.lower(): given + "2"})
+    assert resp.headers.get(header) == given + "2"
