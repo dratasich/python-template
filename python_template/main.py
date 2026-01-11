@@ -12,6 +12,7 @@ from python_template.infrastructure.repository import Repository
 from python_template.log import (
     configure as configure_logging,
 )
+from python_template.version import __version__
 
 # --- basic setup ---
 
@@ -38,7 +39,7 @@ except Exception as e:
 app = FastAPI(
     summary="Python Template Service",
     description="A template for Python microservices using FastAPI.",
-    version="0.1.0",
+    version=__version__,
     license_info={
         "name": "MIT",
         "url": "https://opensource.org/licenses/MIT",
