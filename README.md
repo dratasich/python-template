@@ -59,3 +59,4 @@ Other Templates:
 - [Python uv](https://github.com/a5chin/python-uv)
 - [substrate](https://github.com/superlinear-ai/substrate) - awesome copier template with very similar tools
 - [copier-uv](https://github.com/pawamoy/copier-uv)
+- [opentemplate](https://github.com/open-nudge/opentemplate) - (yet non-uv) alternative to substrate
