@@ -12,7 +12,20 @@ repos:
         # verbose prints help on how the message should look like
         # define types according to angular commit message convention
         # https://github.com/angular/angular/blob/main/contributing-docs/commit-message-guidelines.md#type
-        args: [--verbose, feat, fix, build, ci, docs, perf, refactor, test, chore]
+        args:
+          [
+            --verbose,
+            feat,
+            fix,
+            build,
+            ci,
+            docs,
+            perf,
+            refactor,
+            style,
+            test,
+            chore,
+          ]
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
     hooks:
@@ -49,7 +62,7 @@ repos:
         pass_filenames: false
         always_run: true
         types: [python]
-        stages: [pre-commit]  # change to pre-push if desired
+        stages: [pre-commit] # change to pre-push if desired
   - repo: local
     hooks:
       - id: pytest
