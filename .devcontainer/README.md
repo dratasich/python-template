@@ -2,6 +2,12 @@
 
 This directory contains the development container configuration.
 
+Security considerations:
+
+- TODO: run as non-root
+  (do not use `--privileged` mounts - it enables tempering with your host filesystem)
+- dns, no `--network host` to avoid traffic sniffing
+
 ## Usage
 
 ### VS Code
@@ -35,6 +41,7 @@ Alternatively, you can manually set it up:
 ## Customization
 
 Edit `devcontainer.json` to:
+
 - Add more VS Code extensions in `customizations.vscode.extensions`
 - Change Python version by modifying the image tag (e.g., `python3.13-trixie`)
 - Forward ports for web services in `forwardPorts`
