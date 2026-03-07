@@ -1,3 +1,11 @@
+## 0.6.0 (2026-03-07)
+
+### Feat
+
+- **devcontainer**: add ty to devcontainer in favor of mypy
+- **devcontainer**: add opencode to devcontainer
+- **dev**: add devcontainer config
+
 ## 0.5.0 (2026-01-06)
 
 ### Feat
