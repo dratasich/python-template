@@ -1,20 +1,18 @@
 {
   "name": "Python Template Dev Container",
   "image": "ghcr.io/astral-sh/uv:python3.14-trixie",
-
   // Overwrite docker/podman run arguments
   "runArgs": [
     // Disable creation of /etc/resolv.conf to avoid overwriting host DNS settings
     // https://docs.podman.io/en/v4.4/markdown/options/dns.html
     "--dns=none"
   ],
-
   // Features to add to the dev container
   "features": {
     // install what you need here
     // https://github.com/devcontainers/features
+    "ghcr.io/jsburckhardt/devcontainer-features/opencode:1": {}
   },
-
   // Configure tool-specific properties
   "customizations": {
     "vscode": {
@@ -41,25 +39,19 @@
       }
     }
   },
-
   // Use 'postCreateCommand' to run commands after the container is created
-  "postCreateCommand": "uv sync && uv run pre-commit install",
-
+  "postCreateCommand": ".devcontainer/post-create.sh",
   // Configure container user
   "remoteUser": "root",
   "containerUser": "root",
-
   // Set environment variables
   "containerEnv": {
     "PYTHONUNBUFFERED": "1"
   },
-
   // Forward ports
   "forwardPorts": [],
-
   // Use 'postStartCommand' to run commands after the container starts
   "postStartCommand": "",
-
   // Mount the workspace
   "workspaceFolder": "/workspace",
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
