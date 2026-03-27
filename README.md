@@ -24,14 +24,12 @@ The base branch `main` includes only the most necessary parts of a python projec
   # ideally this is performed by your pipeline (e.g., on PR merge)
   cz bump  --yes --annotated-tag --check-consistency
   ```
-* [pytest](https://docs.pytest.org/en/stable/) - yes, even for python notebooks ;)
+* [pytest](https://docs.pytest.org/en/stable/)
 * simple and optional json logging with [loguru](https://github.com/Delgan/loguru)
 * [pre-commit](https://pre-commit.com/) config (enforcing all of the above)
+* [devcontainer](https://containers.dev/) for quick onboarding and a safe place to run your AI agent
 
-You can include branches depending on your needs:
-* `devcontainers` - Develop within a [devcontainer](https://containers.dev/)
-   (nice to have when you use AI agents or don't have admin rights
-   to install all the stuff you need - `docker` or `podman` required though)
+You can copy from branches depending on your needs:
 * `docker` - Dockerfile and a GitHub action / workflow to build the image
 * `fastapi` - Webservice with [FastAPI](https://fastapi.tiangolo.com/tutorial/first-steps/)
 
