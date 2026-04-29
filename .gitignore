@@ -5,6 +5,7 @@ __pycache__/
 
 # secret files
 *secret*
+!.secrets.baseline
 
 # C extensions
 *.so
