@@ -6,5 +6,6 @@ def test_db_url_password_not_logged(caplog):
     import logging
 
     with caplog.at_level(logging.INFO):
-        DatabaseClient(db_url="postgresql://admin:s3cr3t@localhost/mydb")
+        url = "postgresql://admin:s3cr3t@localhost/mydb"  # pragma: allowlist secret
+        DatabaseClient(db_url=url)
     assert "s3cr3t" not in caplog.text

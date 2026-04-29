@@ -16,7 +16,7 @@ def test_plain_text_logger_diagnose_off(capsys):
         raise RuntimeError("generic error")
 
     def outer():
-        local_secret = "super_secret_value"  # noqa: S105
+        local_secret = "super_secret_value"  # noqa: S105  # pragma: allowlist secret
         inner(local_secret)  # diagnose=True would annotate the argument value here
 
     try:
