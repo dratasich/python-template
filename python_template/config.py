@@ -22,5 +22,5 @@ class Configuration(BaseSettings):
         return self.my_list_str.split(",") if self.my_list_str else []
 
     model_config = SettingsConfigDict(
-        extra="allow", env_file=(".env.shared", ".env.secret")
+        extra="ignore", env_file=(".env.shared", ".env.secret")
     )
