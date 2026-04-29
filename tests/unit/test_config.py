@@ -21,7 +21,8 @@ def test_my_list_property(monkeypatch):
     assert config.my_list == ["x", "y", "z"]
 
 
-def test_extra_fields_allowed(monkeypatch):
-    monkeypatch.setenv("EXTRA_ENV", "extra")
+def test_extra_fields_ignored(monkeypatch):
+    """Extra env vars must be silently ignored — not stored, not logged."""
+    monkeypatch.setenv("EXTRA_ENV", "extra_value")
     config = Configuration()
-    assert not hasattr(config, "extra_field")
+    assert not config.model_extra

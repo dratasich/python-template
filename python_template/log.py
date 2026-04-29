@@ -55,7 +55,7 @@ def configure(level=Level.INFO, enable_json=False):
         logger.configure(patcher=patching)
     else:
         # default loguru format with colorization
-        logger.add(sys.stderr, level=level.value)
+        logger.add(sys.stderr, level=level.value, diagnose=False)
 
     # intercept all logs from the standard logging module
     logging.basicConfig(handlers=[InterceptHandler()], level=0, force=True)
