@@ -1,3 +1,10 @@
+## 0.6.1 (2026-04-29)
+
+### Fix
+
+- **log**: do not log passwords in db url
+- **log**: do not load or log secrets
+
 ## 0.6.0 (2026-03-07)
 
 ### Feat
