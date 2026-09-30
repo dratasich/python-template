@@ -5,6 +5,7 @@ and have the setup from the following guide(s):
 - [Production-Grade Python Logging Made Easier with Loguru](https://www.dash0.com/guides/python-logging-with-loguru)
 """
 
+import contextlib
 import json
 import logging
 import sys
@@ -30,6 +31,15 @@ class Level(StrEnum):
     CRITICAL = "CRITICAL"
 
 
+def stdlib_level(level: Level) -> str:
+    """The stdlib logging level for a given loguru level.
+
+    Stdlib logging has no TRACE or SUCCESS level,
+    so those are mapped to the closest stdlib level.
+    """
+    return {"TRACE": "DEBUG", "SUCCESS": "INFO"}.get(level.value, level.value)
+
+
 def configure(level=Level.INFO, enable_json=False):
     """Configures loguru.
 
@@ -39,7 +49,10 @@ def configure(level=Level.INFO, enable_json=False):
     Unfortunately, I couldn't find a way to have type checking
     (`from loguru import Logger`).
     """
-    logger.remove(0)  # remove the default handler configuration
+    # remove the default handler configuration (id 0),
+    # unless a previous configure call already removed it
+    with contextlib.suppress(ValueError):
+        logger.remove(0)
 
     # POSIX standard -> diagnostic output to stderr
     # levels are simple uppercase strings
@@ -57,8 +70,13 @@ def configure(level=Level.INFO, enable_json=False):
         # default loguru format with colorization
         logger.add(sys.stderr, level=level.value, diagnose=False)
 
-    # intercept all logs from the standard logging module
-    logging.basicConfig(handlers=[InterceptHandler()], level=0, force=True)
+    # intercept all logs from the standard logging module;
+    # root level follows the app level, so noisy third-party records
+    # (e.g. kafka-python TRACE/DEBUG) are filtered at the source
+    # instead of being formatted, bridged and dropped at the sink
+    logging.basicConfig(
+        handlers=[InterceptHandler()], level=stdlib_level(level), force=True
+    )
 
 
 def serialize(record):
