@@ -1,3 +1,9 @@
+## 0.6.2 (2026-09-30)
+
+### Perf
+
+- **log**: avoid unnecessary InterceptHandler calls eating up CPU
+
 ## 0.6.1 (2026-04-29)
 
 ### Fix
